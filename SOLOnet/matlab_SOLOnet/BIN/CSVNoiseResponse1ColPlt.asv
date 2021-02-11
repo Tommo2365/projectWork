@@ -1,0 +1,54 @@
+% get file
+matArray = csvread(uigetfile);
+
+% formatSpec = '%f'; %format text file to single point (col = 1)
+
+% prompt box
+prompt = {'Name of experment: Noise/Response', 'Enter furnace set point Temperature:'};
+dlgtitle = 'Input Vaule';
+bootInput = inputdlg(prompt); % input
+pltName = string(bootInput{1}); % convert eleemnt 2 into string
+tempValue = string(bootInput{2}); % convert element 2 into string (number)
+
+% declae array
+% n = fscanf(inFile,formatSpec); % use for txt files
+yArray= matArray(:, 1);
+L = length(yArray);
+xArray = [1:1:L];
+
+% show standard deviation in command window
+stdDev = std(yArray);
+
+
+
+% settiing parameters fo axis
+xMaxVal = max(xArray);
+xminVal = min(xArray);
+
+yMaxVal = max(yArray);
+yMinVal = min(yArray);
+
+yMaxPara = yMaxVal + 1;
+yMinPara = yMinVal - 1;
+
+%A = [xArray, yArray];
+% save file as xlsx
+Filename = sprintf('%s_Noise.xlsx', datestr(now,'mmddyyyy_HH_MM_SS'));
+xlswrite(Filename, yArray);
+
+% flip y-axis data upside down
+yAxis = flipud(yArray);
+
+txt ='StdDev = '
+
+% make a plot
+scatter(xArray, yAxis);
+grid on;
+title([pltName + ' at ' + tempValue + 'ºC']);
+xlabel('Time / {\it s}');
+ylabel('SOLOnet Temperature Reading / {\it ºC}');
+xlim([0 xMaxVal])
+ylim([yMinPara yMaxPara])
+legend((txt),{num2str(stdDev)})
+
+
