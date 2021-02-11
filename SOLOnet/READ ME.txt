@@ -1,0 +1,21 @@
+##############   Version 1.	29/10/2020: ##################
+
+
+SOLOnet_Ambient: 	
+		1 - Used when more than one data set is being recored in RealTerm.
+	 	2 - The programme accepts inputs in .txt, sortes them in to a (2, N) array and splits a single column of data into two. I.e. Ambient temperature and target temperature. 
+		3 - Data saved as CSV and txt file in the same folder as your input data. This should be C:/temp by default when using RealTerm.
+	 	4 - The programme deletes ACSII characters that are an artifact of using RealTerm.
+		5 - Bug where only an even number of data points for input. Delete last data point.
+
+
+
+SOLOnet_Noise_Response: 
+		1 - Same as SOLOnet_Ambient programme but only for single column. 
+		2 - For use of deleting ACSII characters when using RealTerm to log single sets of data. I.e Response and noise tests.
+		
+
+Known Bugs: 
+		1 - Can only use even number of data points (SOLOnet_Ambient only).
+	    	2 - Data is presented upside down (flipped in vertical direction) in CSV form (SOLOnet_Ambient & SOLOnet_Noise_Response).
+	    	3 - Data cells are not filled in CSV file. Have to manually copy and paste from txt file to CSV (SOLOnet_Noise_Response).

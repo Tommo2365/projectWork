@@ -1,0 +1,29 @@
+open cv2
+import numpy as numpy
+
+
+cir = cv2.imread ("Circles.png")
+
+Gray = cv2.cvtColour(cir, cv2.COLOUR_BGR2GRAY)
+img = cv2.medianBluer(gray, 15)
+
+cimg = cv2.cvtColour(img, gv2.COLOR_GRAY2BGR)
+
+circles = cv2.HoughCircles(img,cv2.HOUGH_GADIENT,1,120, param1=100, param 2=30, minRadius=0, maxRadius=0)
+circles = np.uint16(np.around(circles))
+
+
+for i in circles[0, :]:
+
+    #outer
+
+    cv2circles(cir, (i[0], i[1], i[2], (0,255,0), 2)
+
+    #center
+
+    cv2circles(cir, (i[0], i[1], 2, (0,255,0), 3)
+
+
+    cv2.imshow("circle Detection", cir)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
