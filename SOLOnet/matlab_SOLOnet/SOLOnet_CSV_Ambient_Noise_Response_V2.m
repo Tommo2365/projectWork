@@ -172,7 +172,7 @@ elseif pltName == 'Ambient' || pltName == 'a'
 
     % create a time axis 
     mins2secs = 60
-    timeSec = L./str2double(lengthTime);
+    timeSec = str2double(lengthTime)./L;
     xTime = xArray.*timeSec.*mins2secs;
     
     % swap columns if conditions are met
@@ -189,7 +189,7 @@ elseif pltName == 'Ambient' || pltName == 'a'
     end
 
     % flip columns upsided down (data input is formated upside down prior)
-    x = flipud(xAxis);
+    amb = flipud(xAxis);
     yn = flipud(yAxis);
     y = flipud(Error);
 
@@ -222,7 +222,7 @@ elseif pltName == 'Ambient' || pltName == 'a'
     
     % plot data
     aFig1 = subplot(2,1,1);
-    scatter(x, y);
+    scatter(amb, y);
     grid on;
     hold on
     e1 = plot([5 50], [3 -7], 'LineWidth',2);
@@ -246,7 +246,7 @@ elseif pltName == 'Ambient' || pltName == 'a'
     ylabel('SOLOnet Temperature Reading / {\it ºC}' );
     hold on;
     yyaxis right
-    plot(time, x);
+    plot(time, amb);
     ylabel('Ambient (get) / {\it ºC}');
     
  % add text to plot
