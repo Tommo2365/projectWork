@@ -25,7 +25,7 @@ if pltName == 'Noise' || pltName == 'n'
     xArray = [1:1:L].';
     
     % create a time axis 
-    timeSec = L./str2double(lengthTime);
+    timeSec = str2double(lengthTime)./L;
     xTime = xArray.*timeSec;
     
     % show standard deviation in command window
@@ -89,7 +89,7 @@ elseif pltName == 'Response' || pltName == 'r'
     xArray = [1:1:L].';
     
     % create a time axis 
-    timeSec = L./str2double(lengthTime);
+    timeSec = str2double(lengthTime)./L;
     xTime = xArray.*timeSec;
     
     % Find 90% of most common value
